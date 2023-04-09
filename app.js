@@ -1,15 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import { router as tvshowsRouter } from './routes/tvshows.js';
+import { router as welcomeRouter } from './routes/welcome.js';
 import bodyParser from 'body-parser';
 
 const app = express();
+
 app.use(bodyParser.json());
-
-app.get('/', function (req, res) {
-  res.send('Hello world!');
-});
-
+app.get(welcomeRouter);
 app.use(tvshowsRouter);
 
 mongoose
